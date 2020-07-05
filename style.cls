@@ -19,8 +19,9 @@
 \RequirePackage{fontawesome}
 \RequirePackage{parskip}
 \RequirePackage[default,opentype]{sourcesanspro}
-\RequirePackage[unicode]{hyperref}
-\hypersetup{pdftitle={}, pdfauthor={}, pdfsubject={}, pdfkeywords={}}
+\RequirePackage{hyperref}
+
+\hypersetup{colorlinks=false,linkbordercolor=blue}
 
 % Layout
 
@@ -78,10 +79,10 @@
 % Components
 
 \newcommand{\cvsection}[1]{
-  \vspace{3mm}
+  \vspace{1mm}
   \sectionstyle{#1}
   \color{ligthtext}\leavevmode\leaders\hrule\hfill
-  \vspace{3mm}
+  \vspace{1mm}
 }
 
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -99,6 +100,14 @@
         \entrytitlestyle{#2} & \entryinfostyle{#3} \\
         \entrysubtitlestyle{#1} & \entryinfostyle{#4} \\
         \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
+    \end{tabular*}%
+}
+
+\newcommand{\cventryoneline}[2]{
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{0pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5.5cm} r}
+        \descriptionstyle{#1} & \entryinfostyle{#2} \\
     \end{tabular*}%
 }
 
